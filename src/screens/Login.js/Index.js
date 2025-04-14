@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
-import {View, Button, Alert, StyleSheet, Platform, Image} from 'react-native';
-import {NativeModules, PermissionsAndroid} from 'react-native';
+import {View, Button, Alert, StyleSheet, Platform, Image,NativeModules, PermissionsAndroid} from 'react-native';
 
 const {CameraModule, LoginModule,ToastExample,CalendarModule} = NativeModules;
 
@@ -66,7 +65,7 @@ const Login = () => {
       console.log('Capture Error:', error);
     }
   };
-  ToastExample.show('Awesome', ToastExample.SHORT);
+  
 
   return (
     <View style={styles.container}>
@@ -87,7 +86,7 @@ const Login = () => {
         <Button title="Capture Image" onPress={handleCaptureImage} />
         <Button
         title="Show Toast"
-        onPress={() => ToastExample.show('Hello from Native!', ToastExample.SHORT)}
+        onPress={() => ToastExample?.show('Hello from Native!', ToastExample.SHORT)}
       />
           {/* <Button title="Create Calendar Event" onPress={handleCreateEvent} /> */}
       </View>
