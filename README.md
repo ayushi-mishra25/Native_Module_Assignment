@@ -1,97 +1,55 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+✅ Stack Navigation Setup
+Implemented Stack Navigation to handle screen transitions smoothly. Currently includes two screens:
 
-# Getting Started
+Splash Screen
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+Login Screen
 
-## Step 1: Start Metro
+📱 Login Screen UI
+Designed the Login Screen with three interactive buttons:
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+Show Toast
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+Capture Image
 
-```sh
-# Using npm
-npm start
+Go to Login Activity
 
-# OR using Yarn
-yarn start
-```
+🔔 Custom Toast Integration
+Added a custom native module for showing toasts:
 
-## Step 2: Build and run your app
+Created CustomToast package with ToastModule.java
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
+Registered it in MainApplication.java
 
-### Android
+Designed a custom layout for the toast under res/layout
 
-```sh
-# Using npm
-npm run android
+Integrated the native toast functionality directly within the Login screen
 
-# OR using Yarn
-yarn android
-```
+🔐 Native Login Activity
+Integrated a native Android login screen:
 
-### iOS
+Created LoginActivity.java, LoginModule.java, and LoginPackage.java
 
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
+Registered everything in MainApplication.java
 
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
+Added the activity in AndroidManifest.xml:
 
-```sh
-bundle install
-```
+xml
+Copy
+Edit
+<activity android:name=".LoginActivity" />
+Invoked this activity from the React Native Login screen using the native module
 
-Then, and every time you update your native dependencies, run:
+📷 Native Camera Capture
+Built image capture functionality using the device camera:
 
-```sh
-bundle exec pod install
-```
+Created CameraModule.java and CameraPackage.java
 
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
+Set up file_paths.xml under res/xml for file access
 
-```sh
-# Using npm
-npm run ios
+Registered the camera module in MainApplication.java
 
-# OR using Yarn
-yarn ios
-```
+Handled runtime camera permissions and native intent calls from the Login screen
 
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
-
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
-
-## Step 3: Modify your app
-
-Now that you have successfully run the app, let's make changes!
-
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
-
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
-
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+✅ Tested on a real device — image capture works as expected
+🚫 Not supported on simulators due to lack of camera hardware
